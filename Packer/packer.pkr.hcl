@@ -13,7 +13,7 @@ variable "ssh_key" {
 locals {
     vm_name = "rancheros"
     http_directory = "${path.root}/http"
-    iso_url = "https://github.com/rancher/os/releases/download/${var.rancheros_version}/rancheros.iso"
+    iso_url = "https://github.com/rancher/os/releases/download/v${var.rancheros_version}/rancheros.iso"
     iso_checksum = "none"
     shutdown_command = "echo 'rancher' | sudo -S shutdown -P now"
     boot_command = [

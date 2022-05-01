@@ -1,5 +1,5 @@
 CURRENT_BOX_VERSION := $(subst ", ,$(shell curl -sS "https://app.vagrantup.com/api/v1/box/Yohnah/RancherOS" | jq '.current_version.version'))
-CURRENT_RANCHEROS_VERSION := $(shell curl -sS https://github.com/rancher/os/releases | grep "Release " | sed -e 's/<[^>]*>//g' | grep "v" | awk '{print $2}' | head -n 1 | sed 's/Release //g' | sed 's/ //g')
+CURRENT_RANCHEROS_VERSION := $(shell curl -sS https://github.com/rancher/os/releases | grep "Release " | sed -e 's/<[^>]*>//g' | grep "v" | awk '{print $2}' | head -n 1 | sed 's/Release //g' | sed 's/ //g' | sed 's/v//g')
 VAGRANT_KEY_CONTENT := $(shell curl -sS https://raw.githubusercontent.com/hashicorp/vagrant/master/keys/vagrant.pub)
 OUTPUT_DIRECTORY := /tmp
 DATETIME := $(shell date "+%Y-%m-%d %H:%M:%S")
